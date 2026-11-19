@@ -1,0 +1,8 @@
+# Protokół Testów Aplikacji - System Obsługi Pracowników
+
+| ID Testu | Nazwa przypadku testowego | Dane wejściowe | Oczekiwany rezultat | Rzeczywisty rezultat | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **TC-01** | Poprawne dodanie nowego pracownika | Imię: `Jan`<br>Nazwisko: `Kowalski`<br>Stanowisko: `Programista` | Wyświetlenie komunikatu o sukcesie, wyczyszczenie pól formularza oraz natychmiastowe pojawienie się nowego rekordu w tabeli. | Komunikat został wyświetlony, pola wyczyszczone, rekord z nadanym ID pojawił się w tabeli. | **ZALICZONY** |
+| **TC-02** | Walidacja formularza - puste wszystkie pola | Imię: `""`<br>Nazwisko: `""`<br>Stanowisko: `""` | Zablokowanie zapisu do bazy danych, wyświetlenie okna ostrzegawczego z komunikatem o konieczności wypełnienia wszystkich pól. | Wyświetlono okno ostrzegawcze *"Wszystkie pola muszą być wypełnione!"*, brak nowego wpisu w bazie. | **ZALICZONY** |
+| **TC-03** | Walidacja formularza - jedno puste pole (spacje) | Imię: `Anna`<br>Nazwisko: `"   "`<br>Stanowisko: `Tester` | Zablokowanie zapisu po przycięciu białych znaków (`trim()`), wyświetlenie komunikatu błędu walidacji. | Aplikacja odrzuciła wpis składający się ze spacji i wyświetliła komunikat walidacji. | **ZALICZONY** |
+| **TC-04** | Trwałość danych po ponownym uruchomieniu | Zamknięcie i ponowne uruchomienie aplikacji | Automatyczne połączenie z plikiem `pracownicy.db` i załadowanie wcześniej dodanych rekordów do komponentu `JTable`. | Wszystkie zapisane wcześniej rekordy poprawnie wczytały się do tabeli przy starcie programu. | **ZALICZONY** |
